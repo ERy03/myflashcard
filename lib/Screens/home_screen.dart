@@ -18,6 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Image.asset("assets/images/image_title.png"),
             ),
             _title_text(),
+            Divider(
+              height: 30.0,
+              thickness: 1.0,
+              indent: 8.0,
+              endIndent: 8.0,
+              color: Colors.white,
+            ),
             // TODO 横線、
             // TODO かくにんテストをするボタン、
             // TODO radio button、
