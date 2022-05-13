@@ -30,12 +30,19 @@ class _HomeScreenState extends State<HomeScreen> {
             // かくにんテストをするボタン
             ButtonWithIcon(
               icon: Icon(Icons.play_arrow),
-              label: "Checking",
-              onPressed: () => print("check"),
+              label: "かくにんテストをする",
+              onPressed: () => print("check"), //TODO
               color: Colors.brown,
             ),
-            // TODO radio button、
-            // TODO 単語一覧を表示するボタン、
+            // radio button
+            _radioButton(),
+            // 単語一覧を表示するボタン、
+            ButtonWithIcon(
+              icon: Icon(Icons.list),
+              label: "単語一覧を見る",
+              onPressed: () => print("check 2"), //TODO
+              color: Colors.grey,
+            ),
             Text(
               "Powered by Ryota @ Dreamly 2022",
               style: TextStyle(fontFamily: "Mont"),
@@ -56,6 +63,31 @@ class _HomeScreenState extends State<HomeScreen> {
         Text(
           "My Own Flashcard",
           style: TextStyle(fontSize: 24.0, fontFamily: "Mont"),
+        ),
+      ],
+    );
+  }
+
+  Widget _radioButton() {
+    return Column(
+      children: <Widget>[
+        RadioListTile(
+          title: Text(
+            "暗記済みの単語を除外する",
+            style: TextStyle(fontSize: 16.0),
+          ),
+          value: null,
+          groupValue: null,
+          onChanged: null,
+        ),
+        RadioListTile(
+          title: Text(
+            "暗記済みの単語を含む",
+            style: TextStyle(fontSize: 16.0),
+          ),
+          value: null,
+          groupValue: null,
+          onChanged: null,
         ),
       ],
     );
