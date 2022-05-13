@@ -10,6 +10,11 @@ class WordListScreen extends StatefulWidget {
 class _WordListScreenState extends State<WordListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("単語一覧"),
+        centerTitle: true,
+      ),
+    );
   }
 }
