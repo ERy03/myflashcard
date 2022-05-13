@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               child: Image.asset("assets/images/image_title.png"),
             ),
-            _title_text(),
+            _titleText(),
             // Divider
             const Divider(
               height: 30.0,
@@ -53,14 +53,14 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () => _startWordListScreen(context),
               color: Colors.grey,
             ),
-            SizedBox(
+            const SizedBox(
               height: 60.0,
             ),
-            Text(
+            const Text(
               "Powered by Ryota @ Dreamly 2022",
               style: TextStyle(fontFamily: "Mont"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16.0,
             ),
           ],
@@ -69,9 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _title_text() {
+  Widget _titleText() {
     return Column(
-      children: <Widget>[
+      children: const <Widget>[
         Text(
           "私だけの単語帳",
           style: TextStyle(fontSize: 40.0),
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: <Widget>[
           RadioListTile(
-              title: Text(
+              title: const Text(
                 "暗記済みの単語を除外する",
                 style: TextStyle(fontSize: 16.0),
               ),
@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
               groupValue: isIncludedMemorizedWords,
               onChanged: (bool? value) => _onRadioSelected(value!)),
           RadioListTile(
-            title: Text(
+            title: const Text(
               "暗記済みの単語を含む",
               style: TextStyle(fontSize: 16.0),
             ),
@@ -115,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(
       () {
         isIncludedMemorizedWords = value;
+        // ignore: avoid_print
         print("$value selected");
       },
     );
