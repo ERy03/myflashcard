@@ -15,6 +15,15 @@ class _WordListScreenState extends State<WordListScreen> {
         title: const Text("単語一覧"),
         centerTitle: true,
       ),
+      body: Center(
+        child: Text("WordListScreen"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        tooltip: "新しい単語の追加",
+        onPressed: () => print("FAB"),
+      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
