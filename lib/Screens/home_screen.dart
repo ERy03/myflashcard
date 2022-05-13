@@ -22,7 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
             // TODO かくにんテストをするボタン、
             // TODO radio button、
             // TODO 単語一覧を表示するボタン、
-            Text("Powered by Ryota @ Dreamly 2022"),
+            Text(
+              "Powered by Ryota @ Dreamly 2022",
+              style: TextStyle(fontFamily: "Mont"),
+            ),
           ],
         ),
       ),
@@ -38,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Text(
           "My Own Flashcard",
-          style: TextStyle(fontSize: 24.0),
+          style: TextStyle(fontSize: 24.0, fontFamily: "Mont"),
         ),
       ],
     );
