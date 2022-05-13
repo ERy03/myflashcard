@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'edit_screen.dart';
+
 class WordListScreen extends StatefulWidget {
   const WordListScreen({Key? key}) : super(key: key);
 
@@ -21,9 +23,14 @@ class _WordListScreenState extends State<WordListScreen> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         tooltip: "新しい単語の追加",
-        onPressed: () => print("FAB"),
+        onPressed: () => _addNewWord(),
       ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
+  }
+
+  _addNewWord() {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => EditScreen()));
   }
 }
