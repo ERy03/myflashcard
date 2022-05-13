@@ -76,10 +76,10 @@ flutter:
   fonts:
     - family: Lanobe
       fonts:
-        - asset: fonts/lanobe_pop.otf
+        - asset: assets/fonts/lanobe_pop.otf
     - family: Mont
       fonts:
-        - asset: fonts/Montserrat-Regular.otf
+        - asset: assets/fonts/Montserrat-Regular.otf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
