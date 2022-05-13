@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myflashcard/components/button_with_icon.dart';
 
+import '../screens/word_list_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             _title_text(),
             // Divider
-            Divider(
+            const Divider(
               height: 30.0,
               thickness: 1.0,
               indent: 8.0,
@@ -31,24 +33,24 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // かくにんテストをするボタン
             ButtonWithIcon(
-              icon: Icon(Icons.play_arrow),
+              icon: const Icon(Icons.play_arrow),
               label: "かくにんテストをする",
               onPressed: () => print("check"), //TODO
               color: Colors.brown,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             // radio button
             _radioButton(),
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
             // 単語一覧を表示するボタン、
             ButtonWithIcon(
-              icon: Icon(Icons.list),
+              icon: const Icon(Icons.list),
               label: "単語一覧を見る",
-              onPressed: () => print("check 2"), //TODO
+              onPressed: () => _startWordListScreen(context),
               color: Colors.grey,
             ),
             SizedBox(
@@ -115,6 +117,15 @@ class _HomeScreenState extends State<HomeScreen> {
         isIncludedMemorizedWords = value;
         print("$value selected");
       },
+    );
+  }
+
+  _startWordListScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: ((context) => WordListScreen()),
+      ),
     );
   }
 }
