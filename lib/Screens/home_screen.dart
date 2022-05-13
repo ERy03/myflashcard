@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myflashcard/components/button_with_icon.dart';
 
+import '../screens/test_screen.dart';
 import '../screens/word_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ButtonWithIcon(
               icon: const Icon(Icons.play_arrow),
               label: "かくにんテストをする",
-              onPressed: () => print("check"), //TODO
+              onPressed: () => _startTestScreen(context),
               color: Colors.brown,
             ),
             const SizedBox(
@@ -126,6 +127,17 @@ class _HomeScreenState extends State<HomeScreen> {
       context,
       MaterialPageRoute(
         builder: ((context) => WordListScreen()),
+      ),
+    );
+  }
+
+  _startTestScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: ((context) => TestScreen(
+              isIncludedMemorizedWords: isIncludedMemorizedWords,
+            )),
       ),
     );
   }
