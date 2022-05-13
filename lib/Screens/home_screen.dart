@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myflashcard/components/button_with_icon.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Image.asset("assets/images/image_title.png"),
             ),
             _title_text(),
+            // Divider
             Divider(
               height: 30.0,
               thickness: 1.0,
@@ -25,8 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
               endIndent: 8.0,
               color: Colors.white,
             ),
-            // TODO 横線、
-            // TODO かくにんテストをするボタン、
+            // かくにんテストをするボタン
+            ButtonWithIcon(
+              icon: Icon(Icons.play_arrow),
+              label: "Checking",
+              onPressed: () => print("check"),
+              color: Colors.brown,
+            ),
             // TODO radio button、
             // TODO 単語一覧を表示するボタン、
             Text(
