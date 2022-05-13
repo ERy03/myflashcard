@@ -69,27 +69,30 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _radioButton() {
-    return Column(
-      children: <Widget>[
-        RadioListTile(
-          title: Text(
-            "暗記済みの単語を除外する",
-            style: TextStyle(fontSize: 16.0),
+    return Padding(
+      padding: const EdgeInsets.only(left: 50.0),
+      child: Column(
+        children: <Widget>[
+          RadioListTile(
+            title: Text(
+              "暗記済みの単語を除外する",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            value: null,
+            groupValue: null,
+            onChanged: null,
           ),
-          value: null,
-          groupValue: null,
-          onChanged: null,
-        ),
-        RadioListTile(
-          title: Text(
-            "暗記済みの単語を含む",
-            style: TextStyle(fontSize: 16.0),
+          RadioListTile(
+            title: Text(
+              "暗記済みの単語を含む",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            value: null,
+            groupValue: null,
+            onChanged: null,
           ),
-          value: null,
-          groupValue: null,
-          onChanged: null,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
