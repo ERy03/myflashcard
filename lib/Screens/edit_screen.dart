@@ -9,6 +9,7 @@ class EditScreen extends StatefulWidget {
 
 class _EditScreenState extends State<EditScreen> {
   TextEditingController questionController = TextEditingController();
+  TextEditingController answerController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,11 @@ class _EditScreenState extends State<EditScreen> {
             ),
           ),
           SizedBox(height: 30.0),
+          //問題入力部分
           _questionInputPart(),
+          SizedBox(height: 30.0),
+          //答え入力部分
+          _answerInputPart(),
         ],
       ),
     );
@@ -45,6 +50,27 @@ class _EditScreenState extends State<EditScreen> {
           SizedBox(height: 10.0),
           TextField(
             controller: questionController,
+            keyboardType: TextInputType.text,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 30.0),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _answerInputPart() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      child: Column(
+        children: <Widget>[
+          Text(
+            "答え",
+            style: TextStyle(fontSize: 24.0),
+          ),
+          SizedBox(height: 10.0),
+          TextField(
+            controller: answerController,
             keyboardType: TextInputType.text,
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 30.0),
