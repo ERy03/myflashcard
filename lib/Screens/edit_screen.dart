@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myflashcard/Screens/word_list_screen.dart';
+import 'package:myflashcard/db/database.dart';
+import 'package:myflashcard/main.dart';
 
 class EditScreen extends StatefulWidget {
   const EditScreen({Key? key}) : super(key: key);
@@ -21,8 +23,15 @@ class _EditScreenState extends State<EditScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("単語の編集"),
+          title: const Text("新しい単語の追加"),
           centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.done),
+              tooltip: "登録",
+              onPressed: () => _addNewWord(),
+            ),
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -95,5 +104,18 @@ class _EditScreenState extends State<EditScreen> {
       MaterialPageRoute(builder: (context) => WordListScreen()),
     );
     return Future.value(false);
+  }
+
+  _addNewWord() async {
+    if (questionController.text.isEmpty || answerController.text.isEmpty) {
+      return;
+    }
+    var word = Word(
+      strQuestion: questionController.text,
+      strAnswer: answerController.text,
+    );
+    await database.addWord(word);
+    questionController.clear();
+    answerController.clear();
   }
 }
