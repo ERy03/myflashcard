@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myflashcard/Screens/word_list_screen.dart';
 
 class EditScreen extends StatefulWidget {
   const EditScreen({Key? key}) : super(key: key);
@@ -13,27 +14,35 @@ class _EditScreenState extends State<EditScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("単語の編集"),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: 30.0),
-          Center(
-            child: Text(
-              "問題と答えを入力して「登録」ボタンを押して下さい",
-              style: TextStyle(fontSize: 12.0),
-            ),
+    return WillPopScope(
+      onWillPop: () {
+        _backToWordListScreen();
+        return Future.value(false);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("単語の編集"),
+          centerTitle: true,
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 30.0),
+              Center(
+                child: Text(
+                  "問題と答えを入力して「登録」ボタンを押して下さい",
+                  style: TextStyle(fontSize: 12.0),
+                ),
+              ),
+              SizedBox(height: 30.0),
+              //問題入力部分
+              _questionInputPart(),
+              SizedBox(height: 30.0),
+              //答え入力部分
+              _answerInputPart(),
+            ],
           ),
-          SizedBox(height: 30.0),
-          //問題入力部分
-          _questionInputPart(),
-          SizedBox(height: 30.0),
-          //答え入力部分
-          _answerInputPart(),
-        ],
+        ),
       ),
     );
   }
@@ -78,5 +87,13 @@ class _EditScreenState extends State<EditScreen> {
         ],
       ),
     );
+  }
+
+  Future<bool> _backToWordListScreen() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => WordListScreen()),
+    );
+    return Future.value(false);
   }
 }
