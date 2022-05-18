@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myflashcard/Screens/word_list_screen.dart';
 import 'package:myflashcard/db/database.dart';
 import 'package:myflashcard/main.dart';
@@ -117,5 +118,16 @@ class _EditScreenState extends State<EditScreen> {
     await database.addWord(word);
     questionController.clear();
     answerController.clear();
+
+    //登録完了メッセージ
+    FlutterToast.showToast(
+      msg: "登録完了しました",
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.black,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
   }
 }
